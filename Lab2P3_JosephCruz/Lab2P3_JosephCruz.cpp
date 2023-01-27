@@ -77,16 +77,16 @@ int main()
 			diasFaltadosProm = (diasJulio + diasAgosto + diasSeptiembre + diasOctubre + diasNoviembre + diasDiciembre);
 			diasFaltadosProm = diasFaltadosProm / 6;
 			if (diasFaltadosProm <= 2) {
-				aguinaldoBono =  (aguinaldoBono * 0.05);
+				aguinaldoBono = (aguinaldoBono * 0.05);
 				cout << "El bono es: " << aguinaldoBono << endl;
 			}
 			else {
 				cout << "No hay Bonificacion." << endl;
 			}
-			
+
 			break;
 		}
-		case 2:{
+		case 2: {
 			int ymax = 0;
 			int xmax = 0;
 			int xrounded = 0;
@@ -94,24 +94,42 @@ int main()
 			cout << "Bienvenido al Construir línea calculada mediante una pendiente." << endl;
 			cout << "***************************************************************" << endl;
 			cout << "Ingrese el valor que usted desea para ymax: ";	cin >> ymax;
-			cout << "Ingrese el valor que usted desea para xmax: "; cin >> xmax;			
-			if (ymax <= 0 || xmax <= 0 || ymax < xmax){
+			cout << "Ingrese el valor que usted desea para xmax: "; cin >> xmax;
+			if (ymax <= 0 || xmax <= 0 || ymax < xmax) {
 				cout << "Los valores ingresados no son validos......" << endl;
 				return 0;
 			}
 			double m = (double)ymax / xmax;
-			for (int y = 0; y < ymax; y++){
+			for (int y = 0; y < ymax; y++) {
 				double x = y / m;
 				xrounded = floor(x);
-				for (int i = 0; i < xrounded; i++){
+				for (int i = 0; i < xrounded; i++) {
 					cout << " ";
 				}
 				cout << "*" << endl;
 			}
 		}
 			  break;
-			
-				
+
+
+
+		case 3: {
+			cout << "***************************************************************" << endl;
+			cout << "Bienvenido a Diferencia entre fechas." << endl;
+			cout << "***************************************************************" << endl;
+			int dia1, mes1, anio1, dia2, mes2, anio2, dias1, dias2, diasDif;
+			cout << "Ingrese el dia de la primera fecha: "; cin >> dia1;
+			cout << "Ingrese el mes de la primera fecha: "; cin >> mes1;
+			cout << "Ingrese el anio de la primera fecha: "; cin >> anio1;
+			cout << "Ingrese el dia de la segunda fecha: "; cin >> dia2;
+			cout << "Ingrese el mes de la segunda fecha: "; cin >> mes2;
+			cout << "Ingrese el anio de la segunda fecha: "; cin >> anio2;
+			dias1 = (anio1 * 365) + (mes1 * 30) + dia1;
+			dias2 = (anio2 * 365) + (mes2 * 30) + dia2;
+			diasDif = dias2 - dias1;
+			cout << "La diferencia entre las fechas es: " << diasDif << " dias." << endl;
+			break;
+		}
 		}
     } while (menu!= 4);
 }
