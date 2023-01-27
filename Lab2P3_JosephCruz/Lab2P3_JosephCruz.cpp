@@ -17,10 +17,11 @@ int main()
 		{
 			int aguinaldo = 0;
 			int sueldo = 0;
-			int anios = 0;
-			cout << "Ingrese su sueldo: "; cin >> sueldo;
-			cout << "Ingrese los anios de servicio: "; cin >> anios;
-			aguinaldo = sueldo * anios;
+			int dias = 0;
+			cout << "Bienvenido al calculo de aguinaldo" << endl;
+			cout << "Ingrese su sueldo bruto por cada mes del anio: "; cin >> sueldo;
+			cout << "Ingrese total de dias faltados por mes: "; cin >> dias;
+			aguinaldo = sueldo * dias;
 			cout << "El aguinaldo es: " << aguinaldo << endl;
 			break;
 		}
