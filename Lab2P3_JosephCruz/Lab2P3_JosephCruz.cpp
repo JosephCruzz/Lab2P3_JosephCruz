@@ -118,7 +118,7 @@ int main()
 			cout << "Bienvenido a Diferencia entre fechas." << endl;
 			cout << "***************************************************************" << endl;
 			int dia1, mes1, anio1, dia2, mes2, anio2, dias1, dias2, diasDif;
-			int diasMeses[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+			int diadelosMeses[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 			int diasPasados = 0;
 			cout << "Ingrese el anio de la primera fecha: "; cin >> anio1;
 			cout << "Ingrese el mes de la primera fecha: "; cin >> mes1;
@@ -142,14 +142,14 @@ int main()
 					}
 					else {
 						for (int i = mes1; i < mes2; i++) {
-							diasPasados += diasMeses[i - 1];
+							diasPasados += diadelosMeses[i - 1];
 						}
 						diasPasados += dia2 - dia1;
 					}
 				}
 				else {
 					for (int i = mes1; i <= 12; i++) {
-						diasPasados += diasMeses[i - 1];
+						diasPasados += diadelosMeses[i - 1];
 					}
 					diasPasados += dia2 - dia1;
 					for (int i = anio1 + 1; i < anio2; i++) {
@@ -161,7 +161,7 @@ int main()
 						}
 					}
 					for (int i = 1; i < mes2; i++) {
-						diasPasados += diasMeses[i - 1];
+						diasPasados += diadelosMeses[i - 1];
 					}
 				}
 				cout << "La diferencia entre las fechas es: " << diasPasados << " dias." << endl;
