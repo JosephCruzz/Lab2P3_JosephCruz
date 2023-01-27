@@ -86,9 +86,31 @@ int main()
 			
 			break;
 		}
-		case 2:
-		{}
-			break;
+		case 2:{
+			int ymax = 0;
+			int xmax = 0;
+			int xrounded = 0;
+			cout << "***************************************************************" << endl;
+			cout << "Bienvenido al Construir línea calculada mediante una pendiente." << endl;
+			cout << "***************************************************************" << endl;
+			cout << "Ingrese el valor que usted desea para ymax: ";	cin >> ymax;
+			cout << "Ingrese el valor que usted desea para xmax: "; cin >> xmax;			
+			if (ymax <= 0 || xmax <= 0 || ymax < xmax){
+				cout << "Los valores ingresados no son validos......" << endl;
+				return 0;
+			}
+			double m = (double)ymax / xmax;
+			for (int y = 0; y < ymax; y++){
+				double x = y / m;
+				xrounded = floor(x);
+				for (int i = 0; i < xrounded; i++){
+					cout << " ";
+				}
+				cout << "*" << endl;
+			}
+		}
+			  break;
+			
 				
 		}
     } while (menu!= 4);
