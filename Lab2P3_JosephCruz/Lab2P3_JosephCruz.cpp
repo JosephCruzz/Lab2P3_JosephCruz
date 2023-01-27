@@ -118,16 +118,57 @@ int main()
 			cout << "Bienvenido a Diferencia entre fechas." << endl;
 			cout << "***************************************************************" << endl;
 			int dia1, mes1, anio1, dia2, mes2, anio2, dias1, dias2, diasDif;
-			cout << "Ingrese el dia de la primera fecha: "; cin >> dia1;
-			cout << "Ingrese el mes de la primera fecha: "; cin >> mes1;
+			int diasMeses[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+			int diasPasados = 0;
 			cout << "Ingrese el anio de la primera fecha: "; cin >> anio1;
-			cout << "Ingrese el dia de la segunda fecha: "; cin >> dia2;
-			cout << "Ingrese el mes de la segunda fecha: "; cin >> mes2;
+			cout << "Ingrese el mes de la primera fecha: "; cin >> mes1;
+			cout << "Ingrese el dia de la primera fecha: "; cin >> dia1;
+			
 			cout << "Ingrese el anio de la segunda fecha: "; cin >> anio2;
+			cout << "Ingrese el mes de la segunda fecha: "; cin >> mes2;
+			cout << "Ingrese el dia de la segunda fecha: "; cin >> dia2;
+			
+			/*
 			dias1 = (anio1 * 365) + (mes1 * 30) + dia1;
 			dias2 = (anio2 * 365) + (mes2 * 30) + dia2;
 			diasDif = dias2 - dias1;
+			
 			cout << "La diferencia entre las fechas es: " << diasDif << " dias." << endl;
+			*/
+			if (dia1 > 0 && dia1 <= 31 && dia2 > 0 && dia2 <= 31 && mes1 > 0 && mes1 <= 12 && mes2 > 0 && mes2 <= 12 && anio1 > 0 && anio2 > 0 && anio1 >= 2000 && anio2 >= 2000) {
+				if (anio1 == anio2) {
+					if (mes1 == mes2) {
+						diasPasados = dia2 - dia1;
+					}
+					else {
+						for (int i = mes1; i < mes2; i++) {
+							diasPasados += diasMeses[i - 1];
+						}
+						diasPasados += dia2 - dia1;
+					}
+				}
+				else {
+					for (int i = mes1; i <= 12; i++) {
+						diasPasados += diasMeses[i - 1];
+					}
+					diasPasados += dia2 - dia1;
+					for (int i = anio1 + 1; i < anio2; i++) {
+						if (i % 4 == 0) {
+							diasPasados += 366;
+						}
+						else {
+							diasPasados += 365;
+						}
+					}
+					for (int i = 1; i < mes2; i++) {
+						diasPasados += diasMeses[i - 1];
+					}
+				}
+				cout << "La diferencia entre las fechas es: " << diasPasados << " dias." << endl;
+			}
+			else {
+				cout << "Ingrese una fecha valida.." << endl;;
+			}
 			break;
 		}
 		}
